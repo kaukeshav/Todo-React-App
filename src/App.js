@@ -244,6 +244,45 @@ export default class App extends Component {
     this.openCloseModal();
   };
 
+  handleEditTodo = todo => {
+    this.setState({
+      editTodo: [
+        {
+          ...this.state.editTodo[0],
+          [todo.name]: todo.value
+        }
+      ]
+    });
+    console.log('my fault::', todo);
+  };
+
+  saveEditedTodo = e => {
+    if (e) {
+      this.openCloseModal();
+      const editedTodo = this.state.editTodo.length
+        ? this.state.editTodo[0]
+        : '';
+      this.setState({
+        todos: [
+          ...this.state.todos.map(todo => {
+            if (todo.uniqueId === editedTodo.uniqueId) {
+              todo = editedTodo;
+            }
+            return todo;
+          })
+        ],
+        tempTodoList: [
+          ...this.state.tempTodoList.map(todo => {
+            if (todo.uniqueId === editedTodo.uniqueId) {
+              todo = editedTodo;
+            }
+            return todo;
+          })
+        ]
+      });
+    }
+  };
+
   getHeaderStyles = name => {
     return name === this.state.activeSortBy ? 'active' : '';
   };
@@ -358,7 +397,9 @@ export default class App extends Component {
           show={this.state.isModalActive}
           createNewTodo={this.createTodo}
           closeTodo={this.openCloseModal}
+          handleEditTodo={this.handleEditTodo}
           editTodo={this.state.editTodo}
+          saveEditedTodo={this.saveEditedTodo}
         />
 
         <div className="fixed-button">

@@ -8,7 +8,8 @@ class Modal extends Component {
     dueDate: '',
     currentState: false,
     createdAt: null,
-    uniqueId: ''
+    uniqueId: '',
+    editTodo: {}
   };
 
   getStyles = () => {
@@ -79,6 +80,23 @@ class Modal extends Component {
     }
   }
 
+  editExistingTodo(e) {
+    if (e && e.target) {
+      const confrimCheck = window.confirm(
+        'Are you sure you update the exisiting todo item ?'
+      );
+      if (confrimCheck) {
+        this.props.saveEditedTodo(e);
+      }
+    }
+  }
+
+  onEditTodo(e) {
+    if (e) {
+      this.props.handleEditTodo({ name: e.target.name, value: e.target.value });
+    }
+  }
+
   render() {
     const editTodo = this.props.editTodo.length ? this.props.editTodo[0] : null;
     return (
@@ -105,7 +123,9 @@ class Modal extends Component {
                   minLength="10"
                   maxLength="100"
                   placeholder="Enter title here..."
-                  onChange={this.handleChange}
+                  onChange={
+                    editTodo ? this.onEditTodo.bind(this) : this.handleChange
+                  }
                 />
               </div>
               <div>
@@ -120,7 +140,9 @@ class Modal extends Component {
                   cols="30"
                   name="description"
                   placeholder="Enter description"
-                  onChange={this.handleChange}
+                  onChange={
+                    editTodo ? this.onEditTodo.bind(this) : this.handleChange
+                  }
                 ></textarea>
               </div>
               <div className="dropdown-date">
@@ -129,7 +151,9 @@ class Modal extends Component {
                   <select
                     name="priority"
                     id="priority"
-                    onChange={this.handleChange}
+                    onChange={
+                      editTodo ? this.onEditTodo.bind(this) : this.handleChange
+                    }
                     value={
                       editTodo && editTodo.priority
                         ? editTodo.priority
@@ -150,7 +174,9 @@ class Modal extends Component {
                     type="date"
                     id="start"
                     name="dueDate"
-                    onChange={this.handleChange}
+                    onChange={
+                      editTodo ? this.onEditTodo.bind(this) : this.handleChange
+                    }
                     value={
                       editTodo && editTodo.dueDate
                         ? editTodo.dueDate
@@ -165,7 +191,11 @@ class Modal extends Component {
             <div className="flex-row">
               <button
                 className="btn save-btn"
-                onClick={this.saveTodo.bind(this)}
+                onClick={
+                  editTodo
+                    ? this.editExistingTodo.bind(this)
+                    : this.saveTodo.bind(this)
+                }
               >
                 Save
               </button>
