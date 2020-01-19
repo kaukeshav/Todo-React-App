@@ -30,6 +30,7 @@ class Modal extends Component {
 
   checkOutsideClick = e => {
     if (
+      !e.target.closest('.edit-btn') &&
       !e.target.closest('.modal-content') &&
       this.props.show &&
       !e.target.closest('.fixed-button')
