@@ -12,6 +12,32 @@ class Modal extends Component {
     editTodo: {}
   };
 
+  componentDidMount() {
+    window.addEventListener('click', this.checkOutsideClick);
+    window.addEventListener('keydown', this.onEsc);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.checkOutsideClick);
+    window.removeEventListener('keydown', this.onEsc);
+  }
+
+  onEsc = e => {
+    if (e.target && e.keyCode === 27) {
+      this.closeTodo(e);
+    }
+  };
+
+  checkOutsideClick = e => {
+    if (
+      !e.target.closest('.modal-content') &&
+      this.props.show &&
+      !e.target.closest('.fixed-button')
+    ) {
+      this.closeTodo(e);
+    }
+  };
+
   getStyles = () => {
     return {
       display: this.props.show ? 'block' : 'none'
