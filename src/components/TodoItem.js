@@ -7,6 +7,12 @@ class TodoItem extends Component {
     return this.props.todo.currentState ? 'completed' : '';
   };
 
+  getDateString = date => {
+    return `${new Date(parseInt(date)).toDateString()}${new Date(
+      parseInt(date)
+    ).toLocaleTimeString()}`;
+  };
+
   render() {
     const {
       title,
@@ -28,7 +34,7 @@ class TodoItem extends Component {
         </div>
         <div className="todo-section">
           <h3 className="todo-label">Created On</h3>
-          <div className="todo-title">{createdAt}</div>
+          <div className="todo-title">{this.getDateString(createdAt)}</div>
         </div>
         <div className="todo-section">
           <h3 className="todo-label">Due Date</h3>
