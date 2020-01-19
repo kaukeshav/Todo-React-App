@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/kaukeshav/React-Assessment/static/css/main.ed0d3f1d.chunk.css",
-    "main.js": "/kaukeshav/React-Assessment/static/js/main.c01e0c7f.chunk.js",
-    "main.js.map": "/kaukeshav/React-Assessment/static/js/main.c01e0c7f.chunk.js.map",
-    "runtime-main.js": "/kaukeshav/React-Assessment/static/js/runtime-main.e7916a6f.js",
-    "runtime-main.js.map": "/kaukeshav/React-Assessment/static/js/runtime-main.e7916a6f.js.map",
-    "static/js/2.afa76da1.chunk.js": "/kaukeshav/React-Assessment/static/js/2.afa76da1.chunk.js",
-    "static/js/2.afa76da1.chunk.js.map": "/kaukeshav/React-Assessment/static/js/2.afa76da1.chunk.js.map",
-    "index.html": "/kaukeshav/React-Assessment/index.html",
-    "precache-manifest.40ced2d5a86fa227eb3bb0ab66c4b684.js": "/kaukeshav/React-Assessment/precache-manifest.40ced2d5a86fa227eb3bb0ab66c4b684.js",
-    "service-worker.js": "/kaukeshav/React-Assessment/service-worker.js",
-    "static/css/main.ed0d3f1d.chunk.css.map": "/kaukeshav/React-Assessment/static/css/main.ed0d3f1d.chunk.css.map",
-    "static/js/2.afa76da1.chunk.js.LICENSE": "/kaukeshav/React-Assessment/static/js/2.afa76da1.chunk.js.LICENSE"
+    "main.css": "/React-Assessment/static/css/main.ed0d3f1d.chunk.css",
+    "main.js": "/React-Assessment/static/js/main.c01e0c7f.chunk.js",
+    "main.js.map": "/React-Assessment/static/js/main.c01e0c7f.chunk.js.map",
+    "runtime-main.js": "/React-Assessment/static/js/runtime-main.164eabaf.js",
+    "runtime-main.js.map": "/React-Assessment/static/js/runtime-main.164eabaf.js.map",
+    "static/js/2.afa76da1.chunk.js": "/React-Assessment/static/js/2.afa76da1.chunk.js",
+    "static/js/2.afa76da1.chunk.js.map": "/React-Assessment/static/js/2.afa76da1.chunk.js.map",
+    "index.html": "/React-Assessment/index.html",
+    "precache-manifest.2814657d21d0c93da9a7bf0add8a450f.js": "/React-Assessment/precache-manifest.2814657d21d0c93da9a7bf0add8a450f.js",
+    "service-worker.js": "/React-Assessment/service-worker.js",
+    "static/css/main.ed0d3f1d.chunk.css.map": "/React-Assessment/static/css/main.ed0d3f1d.chunk.css.map",
+    "static/js/2.afa76da1.chunk.js.LICENSE": "/React-Assessment/static/js/2.afa76da1.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.e7916a6f.js",
+    "static/js/runtime-main.164eabaf.js",
     "static/js/2.afa76da1.chunk.js",
     "static/css/main.ed0d3f1d.chunk.css",
     "static/js/main.c01e0c7f.chunk.js"
