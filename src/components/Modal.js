@@ -91,6 +91,12 @@ class Modal extends Component {
     }
   }
 
+  closeEditModal(e) {
+    if (e && e.target) {
+      this.props.closeEditModal(e);
+    }
+  }
+
   onEditTodo(e) {
     if (e) {
       this.props.handleEditTodo({ name: e.target.name, value: e.target.value });
@@ -103,7 +109,14 @@ class Modal extends Component {
       <div id="myModal" className="modal" style={this.getStyles()}>
         <div className="modal-content">
           <div className="modal-header">
-            <span className="close" onClick={this.closeTodo.bind(this)}>
+            <span
+              className="close"
+              onClick={
+                editTodo
+                  ? this.closeEditModal.bind(this)
+                  : this.closeTodo.bind(this)
+              }
+            >
               &times;
             </span>
             <h2>Add Todo</h2>
@@ -201,7 +214,11 @@ class Modal extends Component {
               </button>
               <button
                 className="btn cancel-btn"
-                onClick={this.closeTodo.bind(this)}
+                onClick={
+                  editTodo
+                    ? this.closeEditModal.bind(this)
+                    : this.closeTodo.bind(this)
+                }
               >
                 Cancel
               </button>

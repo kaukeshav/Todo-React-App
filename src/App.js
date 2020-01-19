@@ -253,7 +253,15 @@ export default class App extends Component {
         }
       ]
     });
-    console.log('my fault::', todo);
+  };
+
+  closeEditModal = e => {
+    if (e) {
+      this.openCloseModal();
+      this.setState({
+        editTodo: []
+      });
+    }
   };
 
   saveEditedTodo = e => {
@@ -278,7 +286,8 @@ export default class App extends Component {
             }
             return todo;
           })
-        ]
+        ],
+        editTodo: []
       });
     }
   };
@@ -400,6 +409,7 @@ export default class App extends Component {
           handleEditTodo={this.handleEditTodo}
           editTodo={this.state.editTodo}
           saveEditedTodo={this.saveEditedTodo}
+          closeEditModal={this.closeEditModal}
         />
 
         <div className="fixed-button">
