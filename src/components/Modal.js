@@ -119,42 +119,45 @@ class Modal extends Component {
                   rows="20"
                   cols="30"
                   name="description"
+                  placeholder="Enter description"
                   onChange={this.handleChange}
                 ></textarea>
               </div>
-              <div>
-                <span>Select Priority:</span> &nbsp;&nbsp;&nbsp;
-                <select
-                  name="priority"
-                  id="priority"
-                  onChange={this.handleChange}
-                  value={
-                    editTodo && editTodo.priority
-                      ? editTodo.priority
-                      : this.state.priority
-                  }
-                >
-                  <option value="0" defaultValue>
-                    None
-                  </option>
-                  <option value="1">Low</option>
-                  <option value="2">Medium</option>
-                  <option value="3">High</option>
-                </select>
-              </div>
-              <div className="date">
-                <span>Select Date:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input
-                  type="date"
-                  id="start"
-                  name="dueDate"
-                  onChange={this.handleChange}
-                  value={
-                    editTodo && editTodo.dueDate
-                      ? editTodo.dueDate
-                      : this.state.dueDate
-                  }
-                />
+              <div className="dropdown-date">
+                <div>
+                  <span>Select Priority:</span>
+                  <select
+                    name="priority"
+                    id="priority"
+                    onChange={this.handleChange}
+                    value={
+                      editTodo && editTodo.priority
+                        ? editTodo.priority
+                        : this.state.priority
+                    }
+                  >
+                    <option value="0" defaultValue disabled>
+                      None
+                    </option>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                  </select>
+                </div>
+                <div className="date">
+                  <span>Select Date:</span>
+                  <input
+                    type="date"
+                    id="start"
+                    name="dueDate"
+                    onChange={this.handleChange}
+                    value={
+                      editTodo && editTodo.dueDate
+                        ? editTodo.dueDate
+                        : this.state.dueDate
+                    }
+                  />
+                </div>
               </div>
             </form>
           </div>

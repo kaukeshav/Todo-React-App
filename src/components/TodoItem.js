@@ -13,6 +13,26 @@ class TodoItem extends Component {
     ).toLocaleTimeString()}`;
   };
 
+  getPriority = priority => {
+    let priorityText = '';
+    const priorityNo = isNaN(parseInt(priority)) ? '' : parseInt(priority);
+    switch (priorityNo) {
+      case 1:
+        priorityText = 'Low';
+        break;
+      case 2:
+        priorityText = 'Medium';
+        break;
+      case 3:
+        priorityText = 'High';
+        break;
+      default:
+        priorityText = 'None';
+        break;
+    }
+    return priorityText;
+  };
+
   render() {
     const {
       title,
@@ -30,7 +50,7 @@ class TodoItem extends Component {
         </div>
         <div className="todo-section">
           <h3 className="todo-label">Priority</h3>
-          <div className="todo-title">{priority}</div>
+          <div className="todo-title">{this.getPriority(priority)}</div>
         </div>
         <div className="todo-section">
           <h3 className="todo-label">Created On</h3>

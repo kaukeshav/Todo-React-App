@@ -100,6 +100,7 @@ body {
 
 .modal-footer {
   padding: 10px 20px;
+  border-top: 1px solid rgba(193, 191, 191, 0.2);
 }
 
 @-webkit-keyframes slideIn {
@@ -152,7 +153,7 @@ body {
   outline: none;
 }
 .modal textarea {
-  width: 50%;
+  width: 100%;
   padding: 16px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -200,7 +201,21 @@ body {
 .delete-btn {
   background: #e74c3c;
 }
-
+.dropdown-date {
+  display: flex;
+  margin: 10px 0;
+}
+.dropdown-date > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.dropdown-date > div:first-child {
+  padding-right: 16px;
+}
+.dropdown-date > div:last-child {
+  padding-left: 16px;
+}
 .save-btn {
   min-width: 100px;
   background: #2ecc71;
@@ -282,9 +297,9 @@ body {
   padding: 10px 0;
 }
 
-select {
-  width: 200px;
-  height: 32px;
+.modal-body select {
+  width: 100%;
+  height: 100%;
   background: transparent;
   font-size: 16px;
   line-height: 2;
@@ -294,9 +309,6 @@ input#start {
   font-size: 16px;
   border-radius: 4px;
   border: 1px solid #ccc;
-}
-.date {
-  margin: 10px 0;
 }
 .completed.todo-item {
   box-shadow: none;
@@ -380,4 +392,14 @@ input#start {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
+}
+.add-button button::after {
+  content: 'Add a new Todo';
+  display: block;
+  position: absolute;
+  bottom: -25px;
+  width: 120px;
+  font-size: 14px;
+  left: -23px;
+  text-decoration: underline;
 }
