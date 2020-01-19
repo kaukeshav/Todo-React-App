@@ -249,7 +249,8 @@ body {
 }
 .search-box span {
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: bold;
 }
 .search-box input[type='text'] {
   padding: 6px 12px;
@@ -363,6 +364,11 @@ input#start {
   background: white;
   display: flex;
   align-items: center;
+  min-height: 62px;
+}
+.sorting-el.active {
+  background-image: linear-gradient(-90deg, #4fa3f2, #4481eb);
+  color: white;
 }
 .sorting-el > div {
   margin-left: auto;

@@ -58,7 +58,7 @@ class Modal extends Component {
         'Are you sure you want to create this todo'
       );
       if (confrimCheck) {
-        const timeStamp = `${new Date().toDateString()}${new Date().toLocaleTimeString()}`;
+        const timeStamp = `${new Date().getTime()}`;
         const uniqueId = this.setState({
           createdAt: timeStamp,
           uniqueId: this.generateUid()

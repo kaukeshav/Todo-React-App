@@ -15,6 +15,7 @@ const sortByConfig = {
 
 export default class App extends Component {
   state = {
+    activeSortBy: '',
     isModalActive: false,
     todos: [],
     tempTodoList: [],
@@ -43,7 +44,7 @@ export default class App extends Component {
 
   sortTodos(sortBy) {
     if (sortBy.name && sortBy.orderBy) {
-      const sortByName = sortBy.name.toLowerCase().replace(/ /g);
+      const sortByName = sortBy.name.toLowerCase().replace(/ /g, '');
       const order = sortBy.orderBy;
       this.setState({
         todos: [
@@ -71,14 +72,35 @@ export default class App extends Component {
                 }
                 break;
               case sortByConfig.CREATED_ON:
+                if (order === sortByConfig.DEFAULT_ORDER) {
+                  return (
+                    parseInt(todoOne.createdAt) - parseInt(todoTwo.createdAt)
+                  );
+                } else {
+                  return (
+                    parseInt(todoTwo.createdAt) - parseInt(todoOne.createdAt)
+                  );
+                }
                 break;
               case sortByConfig.DUE_DATE:
+                if (order === sortByConfig.DEFAULT_ORDER) {
+                  return (
+                    new Date(todoOne.dueDate).getTime() -
+                    new Date(todoTwo.dueDate).getTime()
+                  );
+                } else {
+                  return (
+                    new Date(todoTwo.dueDate).getTime() -
+                    new Date(todoOne.dueDate).getTime()
+                  );
+                }
                 break;
               default:
                 break;
             }
           })
-        ]
+        ],
+        activeSortBy: sortBy.name
       });
     }
   }
@@ -222,6 +244,10 @@ export default class App extends Component {
     this.openCloseModal();
   };
 
+  getHeaderStyles = name => {
+    return name === this.state.activeSortBy ? 'active' : '';
+  };
+
   handleTodo = todoDetail => {
     if (todoDetail.type && todoDetail.uniqueId) {
       const { type, uniqueId } = todoDetail;
@@ -294,7 +320,10 @@ export default class App extends Component {
         <div className="container">
           <div className="sorting-head">
             {this.state.tableHeadings.map(heading => (
-              <div className="sorting-el" key={heading.id}>
+              <div
+                className={'sorting-el ' + this.getHeaderStyles(heading.name)}
+                key={heading.id}
+              >
                 {heading.name}
                 <div>
                   <div
@@ -316,13 +345,8 @@ export default class App extends Component {
                 </div>
               </div>
             ))}
-            <div className="sorting-el">
-              Actions
-              <div>
-                <div>&#8593;</div>
-                <div>&#8595;</div>
-              </div>
-            </div>
+            {/* No Sorting on this heading */}
+            <div className="sorting-el">Actions</div>
           </div>
         </div>
 
