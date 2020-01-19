@@ -24,7 +24,7 @@ class Modal extends Component {
 
   onEsc = e => {
     if (e.target && e.keyCode === 27) {
-      this.closeTodo(e);
+      this.props.editTodo.length ? this.closeEditModal(e) : this.closeTodo(e);
     }
   };
 
@@ -35,7 +35,7 @@ class Modal extends Component {
       this.props.show &&
       !e.target.closest('.fixed-button')
     ) {
-      this.closeTodo(e);
+      this.props.editTodo.length ? this.closeEditModal(e) : this.closeTodo(e);
     }
   };
 
@@ -66,7 +66,7 @@ class Modal extends Component {
   };
 
   closeTodo(e) {
-    if (e && e.target) {
+    if (e) {
       this.setState({
         title: '',
         description: '',
